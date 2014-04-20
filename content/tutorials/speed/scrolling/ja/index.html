@@ -41,17 +41,17 @@
 
 <p>In short, <strong>less painting is better</strong>.</p>
 
-<h2 id="toc-diagnosing">Diagnosing Your Paints</h2>
+<h2 id="toc-diagnosing">ペイントの診断</h2>
 
-<p>So much for the theory, let's take a look how this works out in practice. Here's a <a href="/static/demos/scrolling/demo.html">demo page</a> that you can take a look at in Chrome's DevTools. If you open up the Timeline panel, set it to frame mode, hit the record button and then start scrolling, you should see a bunch of bars colored green. I've recorded a video showing you what to do, and what you should see:</p>
+<p>理論はこのくらいにして、実際にこれがどのように動作するかを見ていきましょう。Chromeの開発者ツールを使って調べることができるように<a href="/static/demos/scrolling/demo.html">デモページ</a>を用意しました。"Timeline"パネルを開いて"Frame"モードにします。"record"ボタンを押してスクロールしていくと緑色のバーの束が見えるはずです。どのような作業をしたら、どんな風に見えるのかをビデオに録画しました。</p>
 
 <iframe width="640" height="360" src="http://www.youtube.com/embed/KCtOt9OXvAM?rel=0" frameborder="0" allowfullscreen=""></iframe>
 
-<p>In the list below the timeline you will see a whole heap of paint records. This is Chrome painting and rasterizing the textures for the page's compositor layers. (After all the painting is done you may also see some composite layer records which would be all those updated layers being composited ready for display on screen.)</p>
+<p>"Timeline"の下のリストを見ると全てのペイントの記録がどっさりと見れます。これはChromeのペインティングとWebページのコンポジションレイヤー用にテクスチャをラスタライズしているものです。(全てのペインティングが終わった後にスクリーン上でレイヤーが合成待ちの状態になりアップデートされたコンポジットレイヤーの記録も全て見ることができます)</p>
 
 <figure>
   <img src="/static/demos/scrolling/devtoolspaint.png" alt="Chrome DevTools: Paint Records" />
-  <figcaption>Paint records in Chrome's DevTools</figcaption>
+  <figcaption>Chrome開発者ツールでのペイントの記録</figcaption>
 </figure>
 
 <p>Next to each paint record you will see the dimensions of the painted area and, if you roll over it, Chrome will highlight the area in the page that had to be repainted. Another way to see the areas that had be repainted is to enable “Show paint rectangles” in Chrome's DevTools settings, which is accessed through that little cog icon in the bottom right corner. This is the first indicator that you get about how your page is performing when you scroll. A reminder: <strong>you should be looking for the smallest possible paint areas.</strong></p>
